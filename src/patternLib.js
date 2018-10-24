@@ -1,4 +1,4 @@
-const generatePattern = function (width,character) {
+ const generatePattern = function (width,character) {
   let rectangle = "";
   for(let column=0; column<width; column++) {
     rectangle = rectangle + character;
@@ -49,7 +49,7 @@ const generateRectangle = function(kindOfRectangle,width,height){
     rectangle = createFilledRect(width,height);
   }
 
-  if(kindOfRectangle.toLowerCase()  == "empty") {
+  if(kindOfRectangle.toLowerCase()  == "hollow") {
     rectangle = createEmptyRect(width,height);
   }
 
@@ -65,7 +65,7 @@ const upperPartOfFilled = function (height) {
   let delimeter = "";
   let symbol = "*";
   for(let row=height/2; row>0; row--) {
-    line += delimeter + generatePattern(row-1," ") + symbol;
+    line += delimeter + generatePattern(row-1," ") + symbol + generatePattern(row-1," ") ;
     delimeter = "\n";
     symbol += "**";
   }
@@ -77,7 +77,7 @@ const createFilledDiamond = function (height) {
   let line = upperPartOfFilled(height);
   let len = (height-2);
   for(let row=0; row<(height-1)/2; row++) {
-    line += delimeter + generatePattern(row+1," ")+generatePattern(len,"*");
+    line += delimeter + generatePattern(row+1," ")+generatePattern(len,"*") + generatePattern(row+1," ");
     len -= 2;
   }
   let diamond = line;
@@ -89,10 +89,10 @@ const upperPartOfHollow =function (height) {
   let delimeter = "";
   let symbol = " ";
   let row = Math.floor(height/2);
-  line += delimeter + generatePattern(row," ") + "*";
+  line += delimeter + generatePattern(row," ") + "*" + generatePattern(row," ");
   for(let row=Math.ceil(height/2)-1; row>0; row--) {
     delimeter = "\n";
-    line += delimeter + generatePattern(row-1," ") +"*"+ symbol+"*";
+    line += delimeter + generatePattern(row-1," ") +"*"+ symbol+"*" + generatePattern(row-1," ");
     symbol+="  ";
   }
   return line;
@@ -104,9 +104,9 @@ const createHollowDiamond = function(height) {
   let len = height - 2;
   for(let row=1; row<Math.ceil(height/2)-1; row++) {
     len -= 2;
-    line += delimeter + generatePattern(row," ")+"*"+generatePattern(len," ")+"*";
+    line += delimeter + generatePattern(row," ")+"*"+generatePattern(len," ")+"*" + generatePattern(row," ");
   }
-  line += delimeter + generatePattern(Math.floor(height/2)," ") + "*";
+  line += delimeter + generatePattern(Math.floor(height/2)," ") + "*" + generatePattern(Math.floor(height/2)," ");
   let diamond = line;
   return diamond;
 }
@@ -116,14 +116,14 @@ const upperPartOfAngled = function (height) {
   let delimeter = "";
   let symbol = " ";
   let row = Math.floor(height/2);
-  line += delimeter + generatePattern(row," ") + "*";
+  line += delimeter + generatePattern(row," ") + "*" + generatePattern(row," ");
   delimeter = "\n";
   for(let row=(Math.floor(height/2))-1; row>0; row--) {
-    line += delimeter + generatePattern(row," ") +"/"+ symbol+"\\";
+    line += delimeter + generatePattern(row," ") +"/"+ symbol+"\\" + generatePattern(row," ");
     symbol += "  ";
   }
   if(height>1) {
-    line += delimeter + generatePattern(0," ") +"*"+ symbol+"*";
+    line += delimeter + generatePattern(0," ") +"*"+ symbol+"*" + generatePattern(0," ");
   }
   return line;
 }
@@ -134,9 +134,9 @@ const createAngledDiamond = function(height) {
   let len = height-2;
   for(let row=1; row<(height/2)-1; row++) {
     len -= 2;
-    line += delimeter + generatePattern(row," ")+"\\"+generatePattern(len," ")+"/";
+    line += delimeter + generatePattern(row," ")+"\\"+generatePattern(len," ")+"/" + generatePattern(row," ");
   }
-  line += delimeter + generatePattern(Math.floor(height/2)," ") + "*";
+  line += delimeter + generatePattern(Math.floor(height/2)," ") + "*" + generatePattern(Math.floor(height/2)," ");
   let diamond = line;
   return diamond;
 }
@@ -192,4 +192,4 @@ function generateTriangle(alignment,height){
   return triangle;
 }
   //------------------triangleEnd-------------------//
-  module.exports = {generateDiamond,generateRectangle,generateTriangle};
+  module.exports = {generateDiamond,generateRectangle,generateTriangle}; 
