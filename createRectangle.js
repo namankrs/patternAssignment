@@ -1,9 +1,10 @@
 patternLib = require("./src/patternLib.js");
+patternUtil = require("./src/patternUtil.js");
 let {generateRectangle} = patternLib;
+let {readUserInput} = patternUtil;
 function main(){
-let kindOfRectangle = process.argv[2];
-let width = process.argv[3];
-let height = process.argv[4];
-console.log(generateRectangle(kindOfRectangle,width,height));
+  let userArgs = process.argv;
+  patternArgs = readUserInput(userArgs);
+  console.log(generateRectangle(patternArgs));
 }
 main();

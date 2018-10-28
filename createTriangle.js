@@ -1,10 +1,12 @@
 patternLib = require("./src/patternLib.js")
+patternUtil = require("./src/patternUtil.js")
 let{generateTriangle} = patternLib;
+let {readUserInput} = patternUtil;
 
 function main(){
-let alignment = process.argv[2];
-let height = process.argv[3];
-console.log(generateTriangle(alignment,height));
+  let userArgs = process.argv;
+  patternArgs = readUserInput(userArgs);
+  console.log(generateTriangle(patternArgs));
 }
 main();
 
