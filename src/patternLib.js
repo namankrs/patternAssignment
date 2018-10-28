@@ -2,37 +2,31 @@ const utilLib = require("./patternUtil.js");
 let {repeatCharacter} = utilLib;
 
 const createFilledRect = function(width,height) {
-  let rectangle = "";
-  let delimeter = "";
+  let rectangle = [];
   for(let row=0; row<height; row++) {
-    rectangle += delimeter +  repeatCharacter(width,"*");
-    delimeter = "\n";
+    rectangle[row] = repeatCharacter(width,"*");
   }
   return rectangle;
 }
 
 const createEmptyRect = function (width,height) {
-  let rectangle = "";
-  let delimeter = "";
-  rectangle += delimeter + repeatCharacter(width,"*");
-  delimeter = "\n";
+  let rectangle = [];
+  rectangle[0] = repeatCharacter(width,"*");
   for(let row=1; row<height-1; row++) {
-    rectangle += delimeter + "*" + repeatCharacter(width-2," ") + "*";
+    rectangle[row] =  "*" + repeatCharacter(width-2," ") + "*";
   }
-  rectangle += delimeter + repeatCharacter(width,"*") ;
+  rectangle[height-1] =  repeatCharacter(width,"*") ;
   return rectangle;
 }
 
 const createAlternateRect = function(width,height) {
-  let delimeter = "";
-  let rectangle = "";
+  let rectangle = [];
   for(let row=0; row<height; row++) {
     symbol= "-";
     if(row%2 == 0) {
       symbol= "*";
     } 
-    rectangle += delimeter + repeatCharacter(width,symbol) ;
-    delimeter = "\n";
+    rectangle[row] = repeatCharacter(width,symbol) ;
   }
   return rectangle;
 }
@@ -43,15 +37,15 @@ const generateRectangle = function(rectArgs){
   let rectangle = "";
 
   if(type.toLowerCase()  == "filled") {
-    rectangle = createFilledRect(width,height);
+    rectangle = createFilledRect(width,height).join("\n");
   }
 
   if(type.toLowerCase()  == "hollow") {
-    rectangle = createEmptyRect(width,height);
+    rectangle = createEmptyRect(width,height).join("\n");
   }
 
   if(type.toLowerCase()  == "alternating") {
-    rectangle = createAlternateRect(width,height);
+    rectangle = createAlternateRect(width,height).join("\n");
   }
 
   return rectangle;
