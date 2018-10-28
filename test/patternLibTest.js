@@ -65,7 +65,7 @@ const testRectangle = function(rectArgs,expectedOutput){
   let expectedOutput_2_2 =  "**\n";
   expectedOutput_2_2 +=     "**";
 
-  testRectangle({type: "hollow", width: 2,hollow:2},expectedOutput_2_2);
+  testRectangle({type: "hollow", width: 2,height: 2},expectedOutput_2_2);
 }
 
 //----------------------------- Alternating line Rectangle ------------------------------//
@@ -201,32 +201,32 @@ const testTriangle = function(patternArgs,expectedOutput){
 
 //----------------------------- Left Triangle Pattern ------------------------------//
 {
-  let expectedOutput_3 = "*\n";
-  expectedOutput_3 +=    "**\n";
+  let expectedOutput_3 = "*  \n";
+  expectedOutput_3 +=    "** \n";
   expectedOutput_3 +=    "***";
 
   testTriangle({type: "left",width: 3},expectedOutput_3);
 
-  let expectedOutput_4 = "*\n";
-  expectedOutput_4 +=    "**\n";
-  expectedOutput_4 +=    "***\n";
+  let expectedOutput_4 = "*   \n";
+  expectedOutput_4 +=    "**  \n";
+  expectedOutput_4 +=    "*** \n";
   expectedOutput_4 +=    "****";
 
   testTriangle({type: "left",width: 4},expectedOutput_4);
 
-  let expectedOutput_5 = "*\n";
-  expectedOutput_5 +=    "**\n";
-  expectedOutput_5 +=    "***\n";
-  expectedOutput_5 +=    "****\n";
+  let expectedOutput_5 = "*    \n";
+  expectedOutput_5 +=    "**   \n";
+  expectedOutput_5 +=    "***  \n";
+  expectedOutput_5 +=    "**** \n";
   expectedOutput_5 +=    "*****";
 
   testTriangle({type: "left", width: 5},expectedOutput_5);
 
-  let expectedOutput_6 = "*\n";
-  expectedOutput_6 +=    "**\n";
-  expectedOutput_6 +=    "***\n";
-  expectedOutput_6 +=    "****\n";
-  expectedOutput_6 +=    "*****\n";
+  let expectedOutput_6 = "*     \n";
+  expectedOutput_6 +=    "**    \n";
+  expectedOutput_6 +=    "***   \n";
+  expectedOutput_6 +=    "****  \n";
+  expectedOutput_6 +=    "***** \n";
   expectedOutput_6 +=    "******";
 
   testTriangle({type: "left", width: 6},expectedOutput_6);
