@@ -161,7 +161,7 @@ const createLeftTriangle = function(width) {
   let line = "";
   let delimeter = "";
   for(row=0; row<width; row++) {
-    line += delimeter + repeatCharacter(row+1,"*");
+    line += delimeter + repeatCharacter(row+1,"*") +repeatCharacter(width-(row+1)," ");
     delimeter = "\n"
   }
   return line;
