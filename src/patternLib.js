@@ -37,15 +37,15 @@ const generateRectangle = function(rectArgs){
   let rectangle = "";
 
   if(type.toLowerCase()  == "filled") {
-    rectangle = createFilledRect(width,height).join("\n");
+    rectangle = createFilledRect(width,height)
   }
 
   if(type.toLowerCase()  == "hollow") {
-    rectangle = createEmptyRect(width,height).join("\n");
+    rectangle = createEmptyRect(width,height)
   }
 
   if(type.toLowerCase()  == "alternating") {
-    rectangle = createAlternateRect(width,height).join("\n");
+    rectangle = createAlternateRect(width,height)
   }
 
   return rectangle;
@@ -127,13 +127,13 @@ const generateDiamond = function (patternArgs) {
     width--
   }
   if(type.toLowerCase() == "filled"){
-    diamond = createFilledDiamond(width).join("\n");
+    diamond = createFilledDiamond(width)
   }
   if(type.toLowerCase() == "hollow") {
-    diamond = createHollowDiamond(width).join("\n")
+    diamond = createHollowDiamond(width)
   }
   if(type.toLowerCase() == "angled") {
-    diamond=createAngledDiamond(width).join("\n");
+    diamond=createAngledDiamond(width)
   }
     return diamond;
 }
@@ -159,11 +159,11 @@ function generateTriangle(patternArgs){
   let {type,width} = patternArgs;
   let triangle = "";
   if(type.toLowerCase() == "left") {
-    triangle = createLeftTriangle(width).join("\n");
+    triangle = createLeftTriangle(width)
   }
 
   if(type.toLowerCase() == "right") {
-    triangle = createRightTriangle(width).join("\n");
+    triangle = createRightTriangle(width)
   }
   return triangle;
 }

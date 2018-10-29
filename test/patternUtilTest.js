@@ -14,8 +14,8 @@ let {repeatCharacter,readUserInput} = patternUtil;
   const testReadUserInput = function(inputs,expectedOutput){
     assert.deepEqual(readUserInput(inputs),expectedOutput);
   }
-  testReadUserInput([1,2,3,4,5,6],{type:3,width:4,height:5});
-  testReadUserInput([1,2,3,4],{type:3,width:4,height:undefined});
+  testReadUserInput([1,2,'naman_sharma',4,5,6],{type:'naman',width:4,height:5});
+  testReadUserInput([1,2,'naman',4],{type:'naman',width:4,height:undefined});
 }
 
 console.log("All tests passed");

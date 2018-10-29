@@ -8,7 +8,9 @@ const repeatCharacter = function (width,character) {
 
 const readUserInput = function(inputs){
   let patternArgs = {};
-  patternArgs = {type:inputs[2],width:inputs[3],height:inputs[4]}
+  let typeOfPattern = inputs[2].split("_")[0];
+  let pattern = inputs[2].split("_")[1];
+  patternArgs = {type:typeOfPattern,width:inputs[3],height:inputs[4]}
   return patternArgs;
 }
 module.exports = {repeatCharacter,readUserInput};
