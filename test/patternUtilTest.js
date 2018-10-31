@@ -14,8 +14,8 @@ let {repeatCharacter,readUserInput,flipVertical,flipHorizontal,mergePatterns} = 
   const testReadUserInput = function(inputs,expectedOutput){
     assert.deepEqual(readUserInput(inputs),expectedOutput);
   }
-  testReadUserInput([1,2,'naman_sharma',4,5,6],{type:'naman',width:4,height:5});
-  testReadUserInput([1,2,'naman',4],{type:'naman',width:4,height:undefined});
+  testReadUserInput([1,'filled_rectangle',4,5,'sharma_naman',6,7],{patternArgs1:{pattern:'rectangle',type:'filled',width:4,height:5},patternArgs2:{pattern:'naman',type:'sharma',width:6,height:7}});
+  testReadUserInput([1,'left_triangle',4,'sharma_naman',6,7],{patternArgs1:{pattern:'triangle',type:'left',width:4,height:0},patternArgs2:{pattern:'naman',type:'sharma',width:6,height:7}});
 }
 
 {
