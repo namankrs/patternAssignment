@@ -11,22 +11,21 @@ const readUserInput = function(inputs){
   let patternArgs = {};
   let patternArgs1 = {};
   let patternArgs2 = {};
-  let pattern1 = inputs[1].split("_")[1];
-  let typeOfPattern1 = inputs[1].split("_")[0];
-  
+  let pattern1 = inputs[2].split("_")[1];
+  let typeOfPattern1 = inputs[2].split("_")[0];
   if (pattern1.toLowerCase() == "rectangle"){
-    width1 = inputs[2];
-    height1 = inputs[3];
+    width1 = inputs[3];
+    height1 = inputs[4];
+    pattern2 = inputs[5].split("_")[1];
+    typeOfPattern2 = inputs[5].split("_")[0];
+    width2 = inputs[6];
+    height2 = inputs[7];
+  }else{
+    width1 = inputs[3];
     pattern2 = inputs[4].split("_")[1];
     typeOfPattern2 = inputs[4].split("_")[0];
     width2 = inputs[5];
     height2 = inputs[6];
-  }else{
-    width1 = inputs[2];
-    pattern2 = inputs[3].split("_")[1];
-    typeOfPattern2 = inputs[3].split("_")[0];
-    width2 = inputs[4];
-    height2 = inputs[5];
   }
   patternArgs1 = {pattern:pattern1,type:typeOfPattern1,width:width1,height:height1}
   patternArgs2 = {pattern:pattern2,type:typeOfPattern2,width:width2,height:height2}
